@@ -1,0 +1,95 @@
+[32mINFO[0m:     Started server process [[36m30513[0m]
+[32mINFO[0m:     Waiting for application startup.
+[32mINFO[0m:     Application startup complete.
+[32mINFO[0m:     Uvicorn running on [1mhttp://127.0.0.1:8005[0m (Press CTRL+C to quit)
+[31mERROR[0m:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/backend/main.py", line 113, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anjani/Downloads/Banking_Intelligence_Copilot_UI/backend/main.py", line 861, in simulate_quantum_inference
+    parameters=json.dumps(tx_dict),
+               ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'?
+Run time of job "run_scheduled_queries (trigger: interval[0:01:00], next run at: 2026-02-22 05:36:38 IST)" was missed by 0:00:03.905905
+Run time of job "run_scheduled_queries (trigger: interval[0:01:00], next run at: 2026-02-22 05:51:38 IST)" was missed by 0:00:14.071242
+Run time of job "run_scheduled_queries (trigger: interval[0:01:00], next run at: 2026-02-22 06:40:38 IST)" was missed by 0:00:36.246217
+Run time of job "run_scheduled_queries (trigger: interval[0:01:00], next run at: 2026-02-22 07:01:38 IST)" was missed by 0:00:45.919967
+Run time of job "run_scheduled_queries (trigger: interval[0:01:00], next run at: 2026-02-22 07:20:38 IST)" was missed by 0:00:10.093852
+Run time of job "run_scheduled_queries (trigger: interval[0:01:00], next run at: 2026-02-22 07:23:38 IST)" was missed by 0:00:15.486119
+[32mINFO[0m:     Shutting down
+[32mINFO[0m:     Waiting for application shutdown.
+[32mINFO[0m:     Application shutdown complete.
+[32mINFO[0m:     Finished server process [[36m30513[0m]
