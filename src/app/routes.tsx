@@ -11,6 +11,7 @@ import ScheduledReportsPage from './pages/ScheduledReportsPage';
 import QuantumFraudIntelligencePage from './pages/QuantumFraudIntelligencePage';
 import QueryGovernancePage from './pages/QueryGovernancePage';
 import ComponentShowcase from './components/DesignSystemShowcase';
+import PPTMockup from './pages/PPTMockup';
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: 'governance',
         Component: QueryGovernancePage,
+      },
+      {
+        path: 'ppt-mockup',
+        Component: PPTMockup,
       },
     ],
   },

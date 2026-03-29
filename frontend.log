@@ -9,3 +9,13 @@ Port 5173 is in use, trying another one...
   ➜  Local:   http://localhost:5174/
   ➜  Network: use --host to expose
   ➜  press h + enter to show help
+
+> @figma/my-make-file@0.0.1 dev
+> vite
+
+
+  VITE v6.3.5  ready in 318 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
